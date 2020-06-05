@@ -1,7 +1,7 @@
 FROM java
 MAINTAINER vawu 2134200188@qq.com
 WORKDIR /
-COPY target/*.jar app.jar
+COPY order-provider/target/*.jar app.jar
 ENV JAVA_OPTS="\
 -server \
 -Xmx215m \

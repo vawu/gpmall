@@ -17,7 +17,7 @@
     <profiles>
         <profile>
             <id>nexus</id>
-			<repositories>
+            <repositories>
                 <repository>
                     <id>rdc-releases</id>
                     <url>https://repo.rdc.aliyun.com/repository/131118-release-Gd5INf/</url>
