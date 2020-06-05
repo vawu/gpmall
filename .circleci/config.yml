@@ -9,8 +9,8 @@ jobs:
       - run: 
           name: configuration global maven settings
           command: |
-            if [ ! -d "/opt/setting.xml" ];then
-              cp settings/settings.xml /opt/settings.xml
+            if [ ! -d "/home/circleci/project/settings.xml" ];then
+              cp settings/settings.xml "/home/circleci/project/settings.xml"
             else
               echo "maven setting文件已经存在"
             fi
@@ -84,7 +84,7 @@ commands:
           keys:
             - << parameters.service-name >>-{{ checksum "pom.xml"}}
 
-      - run: mvn dependency:go-offline -s "/opt/settings.xml"
+      - run: mvn dependency:go-offline -s "/home/circleci/project/gpmall/settings/settings.xml"
 
       - save_cache:
           paths:
@@ -93,7 +93,7 @@ commands:
       - run: 
           name: maven install
           command: |
-            mvn install -s "/opt/settings.xml"
+            mvn install -s "/home/circleci/project/gpmall/settings/settings.xml"
       - run: 
           name: build dockerfile
           command: |
