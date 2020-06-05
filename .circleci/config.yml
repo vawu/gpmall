@@ -8,6 +8,11 @@ jobs:
       - run: 
           name: Determine which directories have changed
           command: |
+            pwd
+            ls -alh
+            lsblk
+            docker images
+            docker ps -a
             if [ ! -d "/opt/setting.xml" ];then
               cp settings/settings.xml /opt/settings.xml
             else
