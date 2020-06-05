@@ -74,18 +74,17 @@ commands:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - << parameters.service-name >>-{{ checksum "pom.xml"}}
+            - maven-cache
 
-      - run: mvn dependency:go-offline -s "/home/circleci/gpmall/settings/settings.xml"
-
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: << parameters.service-name >>-{{ checksum "pom.xml"}}
       - run: 
           name: maven install
           command: |
             mvn install -s "/home/circleci/gpmall/settings/settings.xml"
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: maven-cache
       - run: 
           name: build dockerfile
           command: |

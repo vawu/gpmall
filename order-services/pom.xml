@@ -13,7 +13,6 @@
         <module>order-provider</module>
     </modules>
 	
-	
     <distributionManagement>
         <repository>
             <id>maven-release</id>
