@@ -6,14 +6,6 @@ jobs:
       - image: circleci/openjdk:8u242-jdk
     steps:
       - checkout
-      - run: 
-          name: configuration global maven settings
-          command: |
-            if [ ! -d "/home/circleci/project/settings.xml" ];then
-              cp settings/settings.xml "/home/circleci/project/settings.xml"
-            else
-              echo "maven setting文件已经存在"
-            fi
       - run:
           name: Determine which directories have changed
           command: |
