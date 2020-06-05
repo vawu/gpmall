@@ -76,7 +76,7 @@ commands:
           keys:
             - << parameters.service-name >>-{{ checksum "pom.xml"}}
 
-      - run: mvn dependency:go-offline -s "/home/circleci/project/gpmall/settings/settings.xml"
+      - run: mvn dependency:go-offline -s "/home/circleci/gpmall/settings/settings.xml"
 
       - save_cache:
           paths:
@@ -85,7 +85,7 @@ commands:
       - run: 
           name: maven install
           command: |
-            mvn install -s "/home/circleci/project/gpmall/settings/settings.xml"
+            mvn install -s "/home/circleci/gpmall/settings/settings.xml"
       - run: 
           name: build dockerfile
           command: |
