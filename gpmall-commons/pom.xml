@@ -13,21 +13,25 @@
         <module>commons-core</module>
         <module>commons-lock</module>
         <module>commons-mq</module>
+		<module>comment-api</module>
+		<module>shopping-api</module>
+		<module>user-api</module>
+		<module>search-api</module>
+		<module>pay-api</module>
+		<module>order-api</module>
+		<module>coupon-api</module>
+		<module>market-api</module>
     </modules>
-
-    <distributionManagement>
-        <repository>
-            <id>maven-release</id>
-            <name>Nexus Release Repository</name>
-            <url>http://maven.igper.com/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <name>Nexus Snapshot Repository</name>
-            <url>http://maven.igper.com/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
+<distributionManagement>
+    <repository>
+        <id>rdc-releases</id>
+        <url>https://repo.rdc.aliyun.com/repository/131118-release-Gd5INf/</url>
+    </repository>
+    <snapshotRepository>
+        <id>rdc-snapshots</id>
+        <url>https://repo.rdc.aliyun.com/repository/131118-snapshot-RtJ8id/</url>
+    </snapshotRepository>
+</distributionManagement>
     <name>gpmall-commons</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
