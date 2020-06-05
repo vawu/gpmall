@@ -39,7 +39,7 @@ jobs:
     working_directory: ~/gpmall/order-services
     steps:
       - build-service:
-          service-name: "customers-service"
+          service-name: "order-services"
   vets-service:
     docker:
       - image: circleci/openjdk:8u242-jdk
@@ -106,4 +106,4 @@ commands:
       # store raw content of src code
       - store_artifacts:
           path: target/classes
-          destination: spring-petclinic-<< parameters.service-name >>
+          destination: gpmall-<< parameters.service-name >>
