@@ -18,13 +18,6 @@ jobs:
                 curl -s -u ${CIRCLE_TOKEN}: -d build_parameters[CIRCLE_JOB]=${project} https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/tree/$CIRCLE_BRANCH
               fi
             done < projects
-  cloud-gateway:
-    docker:
-      - image: circleci/openjdk:8u242-jdk
-    working_directory: ~/gpmall/cloud-gateway
-    steps:
-      - build-service:
-          service-name: "cloud-gateway"
   order-services:
     docker:
       - image: circleci/openjdk:8u242-jdk
@@ -32,27 +25,42 @@ jobs:
     steps:
       - build-service:
           service-name: "order-services"
-  vets-service:
+  shopping-service:
     docker:
       - image: circleci/openjdk:8u242-jdk
-    working_directory: ~/gpmall/vets-service
+    working_directory: ~/gpmall/shopping-service
     steps:
       - build-service:
-          service-name: "vets-service"
-  visits-service:
+          service-name: "shopping-service"
+  comment-service:
     docker:
       - image: circleci/openjdk:8u242-jdk
-    working_directory: ~/gpmall/visits-service
+    working_directory: ~/gpmall/comment-service
     steps:
       - build-service:
-          service-name: "visits-service"
-  web-app:
+          service-name: "comment-service"
+  market-service:
     docker:
       - image: circleci/openjdk:8u242-jdk
-    working_directory: ~/gpmall/web-app
+    working_directory: ~/gpmall/market-service
     steps:
       - build-service:
-          service-name: "web-app"
+          service-name: "market-service"
+  pay-service:
+    docker:
+      - image: circleci/openjdk:8u242-jdk
+    working_directory: ~/gpmall/pay-service
+    steps:
+      - build-service:
+          service-name: "pay-service"
+  search-service:
+    docker:
+      - image: circleci/openjdk:8u242-jdk
+    working_directory: ~/gpmall/search-service
+    steps:
+      - build-service:
+          service-name: "search-service"
+         
 
 commands:
   build-service:
