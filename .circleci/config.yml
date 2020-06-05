@@ -5,20 +5,15 @@ jobs:
     docker:
       - image: circleci/openjdk:8u242-jdk
     steps:
+      - checkout
       - run: 
-          name: Determine which directories have changed
+          name: configuration global maven settings
           command: |
-            pwd
-            ls -alh
-            lsblk
-            docker images
-            docker ps -a
             if [ ! -d "/opt/setting.xml" ];then
               cp settings/settings.xml /opt/settings.xml
             else
               echo "maven setting文件已经存在"
             fi
-      - checkout
       - run:
           name: Determine which directories have changed
           command: |
